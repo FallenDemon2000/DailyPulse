@@ -1,19 +1,11 @@
 package com.petros.efthymiou.dailypulse.articles
 
-open class ArticleState(
-    val articles:List<Article> = emptyList(),
-    val loading: Boolean = false,
+abstract class ArticleState(
+    val articles: List<Article> = emptyList(),
     val error: String? = null,
 )
 
-class LoadingArticleState()
-    : ArticleState(emptyList(), false, null)
-
-class SuccessArticleState(articles: List<Article>)
-    : ArticleState(articles, false, null)
-
-class ErrorArticleState(error: String)
-    : ArticleState(emptyList(), false, error)
-
-class EmptyArticleState()
-    : ArticleState(emptyList(), false, null)
+class SuccessArticleState(articles: List<Article>) : ArticleState(articles)
+class ErrorArticleState(error: String) : ArticleState(error = error)
+class LoadingArticleState() : ArticleState()
+class EmptyArticleState() : ArticleState()
