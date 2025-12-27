@@ -4,13 +4,13 @@ kotlin = "1.9.10"
 compose = "1.5.1"
 compose-compiler = "1.5.3"
 compose-material3 = "1.1.2"
-androidx-activityCompose = "1.7.2"
-androidx-lifecycle-viewmodel = "2.10.0"
-kotlinx-coroutines-core = "1.10.2"
+androidx-activity-compose = "1.7.2"
+androidx-lifecycle-viewmodel = "2.6.2"
+kotlinx-coroutines-core = "1.7.3"
 
 [libraries]
 androidx-lifecycle-viewmodel = { group = "androidx.lifecycle", name="lifecycle-viewmodel-ktx", version.ref = "androidx-lifecycle-viewmodel" }
-androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity-compose" }
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }

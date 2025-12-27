@@ -8,7 +8,6 @@ import kotlin.math.round
 private const val TAG = "Android-Daily- Pulse"
 
 actual class Platform() {
-
     actual val osName: String
         get() = "Android"
     actual val osVersion: String
