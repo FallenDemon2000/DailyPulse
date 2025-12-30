@@ -37,11 +37,12 @@ import com.petros.efthymiou.dailypulse.articles.ErrorArticleState
 import com.petros.efthymiou.dailypulse.articles.LoadingArticleState
 import com.petros.efthymiou.dailypulse.articles.SuccessArticleState
 import com.petros.efthymiou.dailypulse.articles.model.Article
+import org.koin.androidx.compose.getViewModel
 
 @Composable
 fun ArticlesScreen(
     onAboutButtonClick: () -> Unit,
-    articlesViewModel: ArticlesViewModel,
+    articlesViewModel: ArticlesViewModel = getViewModel(),
 ) {
     val articlesState = articlesViewModel.articlesState.collectAsState()
 
