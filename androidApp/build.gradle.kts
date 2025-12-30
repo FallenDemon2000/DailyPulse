@@ -48,4 +48,6 @@ dependencies {
 
     implementation(libs.compose.coil)
     implementation(libs.compose.navigation)
+    implementation(libs.koin.androidx.compose)
+    implementation(libs.koin.android)
 }

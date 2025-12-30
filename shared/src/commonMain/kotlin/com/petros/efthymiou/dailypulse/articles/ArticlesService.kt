@@ -7,7 +7,9 @@ import io.ktor.client.call.body
 import io.ktor.client.request.get
 import io.ktor.client.statement.HttpResponse
 
-class ArticlesService(private val httpClient: HttpClient) {
+class ArticlesService(
+    private val httpClient: HttpClient,
+) {
 
     private val country: String = "us"
     private val category: String = "business"
