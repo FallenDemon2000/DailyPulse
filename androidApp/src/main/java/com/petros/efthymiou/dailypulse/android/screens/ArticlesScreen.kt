@@ -31,12 +31,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-import com.petros.efthymiou.dailypulse.articles.Article
 import com.petros.efthymiou.dailypulse.articles.ArticlesViewModel
 import com.petros.efthymiou.dailypulse.articles.EmptyArticleState
 import com.petros.efthymiou.dailypulse.articles.ErrorArticleState
 import com.petros.efthymiou.dailypulse.articles.LoadingArticleState
 import com.petros.efthymiou.dailypulse.articles.SuccessArticleState
+import com.petros.efthymiou.dailypulse.articles.model.Article
 
 @Composable
 fun ArticlesScreen(

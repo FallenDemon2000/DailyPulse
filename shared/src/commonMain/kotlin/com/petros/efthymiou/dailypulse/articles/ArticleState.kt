@@ -1,5 +1,7 @@
 package com.petros.efthymiou.dailypulse.articles
 
+import com.petros.efthymiou.dailypulse.articles.model.Article
+
 abstract class ArticleState(
     val articles: List<Article> = emptyList(),
     val error: String? = null,
