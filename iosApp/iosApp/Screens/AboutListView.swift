@@ -13,7 +13,7 @@ struct AboutListView: View {
     private struct RowItem: Hashable {
         let title: String
         let subtitle: String
-    }
+    }
     
     private let items: [RowItem] = {
         let platform = Platform()

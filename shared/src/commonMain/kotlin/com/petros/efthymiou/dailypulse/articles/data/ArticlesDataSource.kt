@@ -1,6 +1,5 @@
-package com.petros.efthymiou.dailypulse.articles
+package com.petros.efthymiou.dailypulse.articles.data
 
-import com.petros.efthymiou.dailypulse.articles.model.ArticleRaw
 import petros.efthymiou.dailypulse.db.DailyPulseDatabase
 
 class ArticlesDataSource(private val database: DailyPulseDatabase) {

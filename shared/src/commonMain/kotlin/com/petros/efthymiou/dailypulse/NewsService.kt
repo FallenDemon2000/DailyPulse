@@ -1,13 +1,15 @@
-package com.petros.efthymiou.dailypulse.articles
+package com.petros.efthymiou.dailypulse
 
-import com.petros.efthymiou.dailypulse.articles.model.ArticleRaw
-import com.petros.efthymiou.dailypulse.articles.model.ArticlesResponse
+import com.petros.efthymiou.dailypulse.articles.data.ArticleRaw
+import com.petros.efthymiou.dailypulse.articles.data.ArticlesResponse
+import com.petros.efthymiou.dailypulse.sources.data.SourceRaw
+import com.petros.efthymiou.dailypulse.sources.data.SourcesResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
 import io.ktor.client.statement.HttpResponse
 
-class ArticlesService(
+class NewsService(
     private val httpClient: HttpClient,
 ) {
 
@@ -18,9 +20,20 @@ class ArticlesService(
     suspend fun fetchArticles(): List<ArticleRaw> =
         httpClient.getArticles().body<ArticlesResponse>().result
 
+    suspend fun fetchSources(): List<SourceRaw> =
+        httpClient.getSources().body<SourcesResponse>().sources
+
     private suspend fun HttpClient.getArticles(): HttpResponse =
         get(
             urlString = "https://newsapi.org/v2/top-headlines?" +
+                    "country=$country&" +
+                    "category=$category&" +
+                    "apiKey=$apiKey",
+        )
+
+    private suspend fun HttpClient.getSources(): HttpResponse =
+        get(
+            urlString = "https://newsapi.org/v2/top-headlines/sources?" +
                     "country=$country&" +
                     "category=$category&" +
                     "apiKey=$apiKey",

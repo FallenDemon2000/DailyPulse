@@ -1,10 +1,10 @@
-package com.petros.efthymiou.dailypulse.articles
+package com.petros.efthymiou.dailypulse.articles.data
 
-import com.petros.efthymiou.dailypulse.articles.model.ArticleRaw
+import com.petros.efthymiou.dailypulse.NewsService
 
 class ArticlesRepository(
     private val dataSource: ArticlesDataSource,
-    private val service: ArticlesService,
+    private val service: NewsService,
 ) {
     suspend fun getArticles(forceFetch: Boolean): List<ArticleRaw> {
         if (forceFetch) {

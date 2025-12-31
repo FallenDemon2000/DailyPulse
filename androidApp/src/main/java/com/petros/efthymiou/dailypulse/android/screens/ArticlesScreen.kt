@@ -12,6 +12,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Info
+import androidx.compose.material.icons.outlined.List
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -30,30 +31,31 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.SwipeRefreshState
-import com.petros.efthymiou.dailypulse.articles.ArticleState
-import com.petros.efthymiou.dailypulse.articles.ArticlesViewModel
-import com.petros.efthymiou.dailypulse.articles.EmptyArticleState
-import com.petros.efthymiou.dailypulse.articles.ErrorArticleState
-import com.petros.efthymiou.dailypulse.articles.LoadingArticleState
-import com.petros.efthymiou.dailypulse.articles.model.Article
+import com.petros.efthymiou.dailypulse.articles.presentation.ArticlesState
+import com.petros.efthymiou.dailypulse.articles.presentation.EmptyArticlesState
+import com.petros.efthymiou.dailypulse.articles.presentation.ErrorArticlesState
+import com.petros.efthymiou.dailypulse.articles.presentation.LoadingArticlesState
+import com.petros.efthymiou.dailypulse.articles.domain.Article
+import com.petros.efthymiou.dailypulse.articles.presentation.ArticlesViewModel
 import org.koin.androidx.compose.getViewModel
 
 @Composable
 fun ArticlesScreen(
     onAboutButtonClick: () -> Unit,
+    onSourcesButtonClick: () -> Unit,
     articlesViewModel: ArticlesViewModel = getViewModel(),
 ) {
     val articlesState = articlesViewModel.articlesState.collectAsState()
     val onSwipeRefresh: () -> Unit = { articlesViewModel.getArticles(true) }
 
     Column {
-        AppBar(onAboutButtonClick)
+        AppBar(onAboutButtonClick, onSourcesButtonClick)
         when (articlesState.value) {
-            is ErrorArticleState -> ErrorMessage(articlesState.value.error!!)
-            is EmptyArticleState -> ErrorMessage("Empty Article Found")
+            is ErrorArticlesState -> ErrorMessage(articlesState.value.error!!)
+            is EmptyArticlesState -> ErrorMessage("Empty Article Found")
             else ->
                 ArticlesListView(
-                    articles = articlesState.value,
+                    articlesState = articlesState.value,
                     onSwipeRefresh = onSwipeRefresh,
                 )
         }
@@ -64,10 +66,17 @@ fun ArticlesScreen(
 @Composable
 private fun AppBar(
     onAboutButtonClick: () -> Unit,
+    onSourcesButtonClick: () -> Unit,
 ) {
     TopAppBar(
         title = { Text(text = "Articles") },
         actions = {
+            IconButton(onClick = onSourcesButtonClick) {
+                Icon(
+                    imageVector = Icons.Outlined.List,
+                    contentDescription = "Sources Button",
+                )
+            }
             IconButton(onClick = onAboutButtonClick) {
                 Icon(
                     imageVector = Icons.Outlined.Info,
@@ -80,13 +89,13 @@ private fun AppBar(
 
 @Composable
 fun ArticlesListView(
-    articles: ArticleState,
+    articlesState: ArticlesState,
     onSwipeRefresh: () -> Unit = {},
 ) {
-    val swipeRefreshState = SwipeRefreshState(articles is LoadingArticleState)
+    val swipeRefreshState = SwipeRefreshState(articlesState is LoadingArticlesState)
     SwipeRefresh(state = swipeRefreshState, onRefresh = onSwipeRefresh) {
         LazyColumn(modifier = Modifier.fillMaxSize()) {
-            items(items = articles.articles) { article ->
+            items(items = articlesState.articles) { article ->
                 ArticleItemView(article = article)
             }
         }
@@ -123,7 +132,7 @@ fun ArticleItemView(article: Article) {
 }
 
 @Composable
-fun ErrorMessage(message: String) {
+private fun ErrorMessage(message: String) {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
@@ -134,10 +143,3 @@ fun ErrorMessage(message: String) {
         )
     }
 }
-
-
-
-
-
-
-
