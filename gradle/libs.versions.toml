@@ -1,4 +1,5 @@
 [versions]
+accompanist-swiperefresh = "0.24.13-rc"
 agp = "8.2.2"
 kotlin = "1.9.10"
 compose = "1.5.1"
@@ -12,8 +13,10 @@ koin = "3.4.3"
 kotlinx-coroutines-core = "1.7.3"
 kotlinx-datetime = "0.4.1"
 ktor-client = "2.3.5"
+sql-delight = "2.0.0"
 
 [libraries]
+accompanist-swiperefresh = { group = "com.google.accompanist", name = "accompanist-swiperefresh", version.ref = "accompanist-swiperefresh" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity-compose" }
 androidx-lifecycle-viewmodel = { group = "androidx.lifecycle", name="lifecycle-viewmodel-ktx", version.ref = "androidx-lifecycle-viewmodel" }
 compose-coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "compose-coil" }
@@ -34,6 +37,9 @@ ktor-client-core = { group = "io.ktor", name = "ktor-client-core", version.ref="
 ktor-client-content-negotiation = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref="ktor-client"}
 ktor-client-darwin = { group = "io.ktor", name = "ktor-client-darwin", version.ref="ktor-client"}
 ktor-serialization-kotlinx-json = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref="ktor-client"}
+sql-android-driver = { group = "app.cash.sqldelight", name = "android-driver", version.ref = "sql-delight" }
+sql-coroutines-extensions = { group = "app.cash.sqldelight", name = "coroutines-extensions", version.ref = "sql-delight" }
+sql-native-driver = { group = "app.cash.sqldelight", name = "native-driver", version.ref = "sql-delight" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -41,3 +47,4 @@ androidLibrary = { id = "com.android.library", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
+sqlDelight = { id = "app.cash.sqldelight", version.ref = "sql-delight" }

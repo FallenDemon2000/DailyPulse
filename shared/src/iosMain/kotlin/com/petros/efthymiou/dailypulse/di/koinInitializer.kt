@@ -7,7 +7,7 @@ import org.koin.core.component.inject
 import org.koin.core.context.startKoin
 
 fun initKoin(): KoinApplication =
-    startKoin { modules(sharedKoinModules) }
+    startKoin { modules(sharedKoinModules + databaseModule) }
 
 class ArticlesInjector(): KoinComponent {
     val articlesViewModel: ArticlesViewModel by inject()
