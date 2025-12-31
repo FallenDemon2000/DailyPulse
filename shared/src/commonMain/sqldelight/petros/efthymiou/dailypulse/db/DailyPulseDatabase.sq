@@ -1,17 +1,36 @@
 CREATE TABLE Article (
     title TEXT NOT NULL,
-    desc TEXT,
+    description TEXT,
     date TEXT NOT NULL,
     imageUrl TEXT
 );
 
+CREATE TABLE Source (
+    id TEXT NOT NULL,
+    name TEXT NOT NULL,
+    description TEXT,
+    language TEXT NOT NULL,
+    country TEXT NOT NULL
+);
+
 insertArticle:
-INSERT INTO Article(title, desc, date, imageUrl)
+INSERT INTO Article(title, description, date, imageUrl)
 VALUES(?, ?, ?, ?);
+
+insertSource:
+INSERT INTO Source(id, name, description, language, country)
+VALUES(?, ?, ?, ?, ?);
 
 selectAllArticles:
 SELECT Article.*
 FROM Article;
 
+selectAllSources:
+SELECT Source.*
+FROM Source;
+
 removeAllArticles:
 DELETE FROM Article;
+
+removeAllSources:
+DELETE FROM Source;

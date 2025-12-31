@@ -21,7 +21,7 @@ extension ArticlesScreen {
             articlesState = articlesViewModel.articlesState.value
         }
         
-        @Published var articlesState: ArticleState
+        @Published var articlesState: ArticlesState
         
         func startObserving() {
             Task {
@@ -43,11 +43,11 @@ struct ArticlesScreen: View {
             
             let articlesState = viewModel.articlesState
             switch articlesState {
-            case is LoadingArticleState:
+            case is LoadingArticlesState:
                 Loader()
-            case is ErrorArticleState:
+            case is ErrorArticlesState:
                 ErrorMessage(message: articlesState.error ?? "Unknown Error")
-            case is EmptyArticleState:
+            case is EmptyArticlesState:
                 ErrorMessage(message: "Empty Article Found")
             default:
                 ScrollView {
@@ -65,7 +65,7 @@ struct ArticlesScreen: View {
     }
 }
 
-struct AppBar: View {
+private struct AppBar: View {
     var body: some View {
         Text("Articles")
             .font(.largeTitle)
@@ -73,7 +73,7 @@ struct AppBar: View {
     }
 }
 
-struct ArticleItemView: View {
+private struct ArticleItemView: View {
     var article: Article
     
     var body: some View {
@@ -99,13 +99,13 @@ struct ArticleItemView: View {
     }
 }
 
-struct Loader: View {
+private struct Loader: View {
     var body: some View {
         ProgressView()
     }
 }
 
-struct ErrorMessage: View {
+private struct ErrorMessage: View {
     var message: String
     
     var body: some View {
