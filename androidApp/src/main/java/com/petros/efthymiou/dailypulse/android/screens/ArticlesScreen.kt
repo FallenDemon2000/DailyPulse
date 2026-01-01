@@ -1,6 +1,5 @@
 package com.petros.efthymiou.dailypulse.android.screens
 
-
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -31,12 +30,12 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.SwipeRefreshState
+import com.petros.efthymiou.dailypulse.articles.domain.Article
 import com.petros.efthymiou.dailypulse.articles.presentation.ArticlesState
+import com.petros.efthymiou.dailypulse.articles.presentation.ArticlesViewModel
 import com.petros.efthymiou.dailypulse.articles.presentation.EmptyArticlesState
 import com.petros.efthymiou.dailypulse.articles.presentation.ErrorArticlesState
 import com.petros.efthymiou.dailypulse.articles.presentation.LoadingArticlesState
-import com.petros.efthymiou.dailypulse.articles.domain.Article
-import com.petros.efthymiou.dailypulse.articles.presentation.ArticlesViewModel
 import org.koin.androidx.compose.getViewModel
 
 @Composable
@@ -83,7 +82,7 @@ private fun AppBar(
                     contentDescription = "About Device Button",
                 )
             }
-        }
+        },
     )
 }
 
@@ -104,20 +103,19 @@ fun ArticlesListView(
 
 @Composable
 fun ArticleItemView(article: Article) {
-
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp)
+            .padding(16.dp),
     ) {
         AsyncImage(
             model = article.imageUrl,
-            contentDescription = null
+            contentDescription = null,
         )
         Spacer(modifier = Modifier.height(4.dp))
         Text(
             text = article.title,
-            style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 22.sp)
+            style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 22.sp),
         )
         Spacer(modifier = Modifier.height(8.dp))
         Text(text = article.description)
@@ -125,7 +123,7 @@ fun ArticleItemView(article: Article) {
         Text(
             text = article.date,
             style = TextStyle(color = Color.Gray),
-            modifier = Modifier.align(Alignment.End)
+            modifier = Modifier.align(Alignment.End),
         )
         Spacer(modifier = Modifier.height(4.dp))
     }
@@ -135,11 +133,11 @@ fun ArticleItemView(article: Article) {
 private fun ErrorMessage(message: String) {
     Box(
         modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
+        contentAlignment = Alignment.Center,
     ) {
         Text(
             text = message,
-            style = TextStyle(fontSize = 28.sp, textAlign = TextAlign.Center)
+            style = TextStyle(fontSize = 28.sp, textAlign = TextAlign.Center),
         )
     }
 }

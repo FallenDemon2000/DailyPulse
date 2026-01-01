@@ -45,12 +45,12 @@ fun AppNavHost(
 
         composable(Screens.ABOUT_DEVICE.route) {
             AboutScreen(
-                onUpButtonClick = { navController.popBackStack() }
+                onUpButtonClick = { navController.popBackStack() },
             )
         }
         composable(Screens.SOURCES.route) {
             SourcesScreen(
-                onUpButtonClick = { navController.popBackStack() }
+                onUpButtonClick = { navController.popBackStack() },
             )
         }
     }

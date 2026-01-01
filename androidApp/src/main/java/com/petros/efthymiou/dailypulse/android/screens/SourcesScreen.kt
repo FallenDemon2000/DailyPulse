@@ -67,7 +67,7 @@ private fun Toolbar(
                     contentDescription = "Up Button",
                 )
             }
-        }
+        },
     )
 }
 
@@ -91,7 +91,7 @@ fun SourceItemView(source: Source, modifier: Modifier = Modifier) {
     Column(modifier = modifier) {
         Text(
             text = source.name,
-            style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 22.sp)
+            style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 22.sp),
         )
         Spacer(modifier = Modifier.height(8.dp))
         Text(text = source.description)
@@ -99,7 +99,7 @@ fun SourceItemView(source: Source, modifier: Modifier = Modifier) {
         Text(
             text = source.origin,
             style = TextStyle(color = Color.Gray),
-            modifier = Modifier.align(Alignment.End)
+            modifier = Modifier.align(Alignment.End),
         )
     }
 }
@@ -108,11 +108,11 @@ fun SourceItemView(source: Source, modifier: Modifier = Modifier) {
 private fun ErrorMessage(message: String, modifier: Modifier = Modifier) {
     Box(
         modifier = modifier,
-        contentAlignment = Alignment.Center
+        contentAlignment = Alignment.Center,
     ) {
         Text(
             text = message,
-            style = TextStyle(fontSize = 28.sp, textAlign = TextAlign.Center)
+            style = TextStyle(fontSize = 28.sp, textAlign = TextAlign.Center),
         )
     }
 }
