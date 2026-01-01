@@ -7,6 +7,7 @@ compose-coil = "2.5.0"
 compose-compiler = "1.5.3"
 compose-material3 = "1.1.2"
 compose-navigation = "2.7.5"
+detekt = "1.23.8"
 androidx-activity-compose = "1.7.2"
 androidx-lifecycle-viewmodel = "2.6.2"
 koin = "3.4.3"
@@ -44,6 +45,7 @@ sql-native-driver = { group = "app.cash.sqldelight", name = "native-driver", ver
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt"}
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
