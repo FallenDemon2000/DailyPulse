@@ -22,7 +22,7 @@ import com.petros.efthymiou.dailypulse.Platform
 
 @Composable
 fun AboutScreen(
-    onUpButtonClick: () -> Unit
+    onUpButtonClick: () -> Unit,
 ) {
     Column {
         Toolbar(onUpButtonClick)
@@ -33,7 +33,7 @@ fun AboutScreen(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun Toolbar(
-    onUpButtonClick: () -> Unit
+    onUpButtonClick: () -> Unit,
 ) {
     TopAppBar(
         title = { Text(text = "About Device") },
@@ -44,7 +44,7 @@ private fun Toolbar(
                     contentDescription = "Up Button",
                 )
             }
-        }
+        },
     )
 }
 
@@ -68,7 +68,7 @@ private fun makeItems(): List<Pair<String, String>> {
     return listOf(
         Pair("Operating System", "${platform.osName} ${platform.osVersion}"),
         Pair("Device", platform.deviceModel),
-        Pair("Density", platform.screenDensity.toString())
+        Pair("Density", platform.screenDensity.toString()),
     )
 }
 
