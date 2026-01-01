@@ -1,0 +1,216 @@
+complexity:
+  active: true
+  MethodOverloading:
+    active: true
+    threshold: 6
+  ReplaceSafeCallChainWithRun:
+    active: true
+  StringLiteralDuplication:
+    active: true
+    threshold: 3
+    ignoreAnnotation: true
+    ignoreStringsRegex: '$^'
+  NestedBlockDepth:
+    active: true
+    threshold: 5
+  TooManyFunctions:
+    active: true
+    excludes: ["**/*Test.kt", "**/*Ext.kt", "**/ResourceProvider.kt"]
+    thresholdInFiles: 15
+    thresholdInClasses: 15
+    thresholdInInterfaces: 15
+    thresholdInObjects: 15
+    thresholdInEnums: 11
+    ignoreDeprecated: false
+    ignorePrivate: false
+    ignoreOverridden: true
+
+coroutines:
+  active: true
+  GlobalCoroutineUsage:
+    active: true
+  RedundantSuspendModifier:
+    active: true
+  SuspendFunWithFlowReturnType:
+    active: true
+
+exceptions:
+  active: true
+  ExceptionRaisedInUnexpectedLocation:
+    active: true
+    methodNames: ['toString','hashCode','equals','finalize']
+  InstanceOfCheckForException:
+    active: true
+  PrintStackTrace:
+    active: true
+  RethrowCaughtException:
+    active: true
+  ReturnFromFinally:
+    active: true
+  SwallowedException:
+    active: true
+  ThrowingExceptionFromFinally:
+    active: true
+  ThrowingExceptionInMain:
+    active: true
+  ThrowingExceptionsWithoutMessageOrCause:
+    active: true
+  ThrowingNewInstanceOfSameException:
+    active: true
+  TooGenericExceptionCaught:
+    active: true
+    exceptionNames:
+      - Error
+      - Exception
+      - RuntimeException
+      - Throwable
+
+formatting:
+  active: true
+  autoCorrect: true
+  MaximumLineLength:
+    active: false
+  NoWildcardImports:
+    active: false
+  TrailingCommaOnCallSite:
+    active: true
+  TrailingCommaOnDeclarationSite:
+    active: true
+
+empty-blocks:
+  active: true
+  EmptyFunctionBlock:
+    active: true
+    ignoreOverridden: true
+
+potential-bugs:
+  active: true
+  ImplicitDefaultLocale:
+    active: true
+  MapGetWithNotNullAssertionOperator:
+    active: true
+  UnconditionalJumpStatementInLoop:
+    active: true
+  UnnecessaryNotNullOperator:
+    active: true
+  UnnecessarySafeCall:
+    active: true
+  UnsafeCast:
+    active: true
+  UselessPostfixExpression:
+    active: true
+  LateinitUsage:
+    active: true
+  Deprecation:
+    active: true
+
+style:
+  active: true
+  ForbiddenComment:
+    active: true
+    comments: ['FIXME:', 'STOPSHIP:']
+    allowedPatterns: ''
+  ClassOrdering:
+    active: true
+  EqualsOnSignatureLine:
+    active: true
+  ExplicitCollectionElementAccessMethod:
+    active: true
+  CollapsibleIfStatements:
+    active: true
+  ExpressionBodySyntax:
+    active: true
+  MandatoryBracesLoops:
+    active: true
+  BracesOnIfStatements:
+    active: true
+    singleLine: 'never'
+    multiLine: 'always'
+  NestedClassesVisibility:
+    active: true
+  NoTabs:
+    active: true
+  OptionalUnit:
+    active: true
+  BracesOnWhenStatements:
+    active: true
+  PreferToOverPairSyntax:
+    active: true
+  RedundantExplicitType:
+    active: true
+  RedundantVisibilityModifierRule:
+    active: true
+  SerialVersionUIDInSerializableClass:
+    active: true
+  SpacingBetweenPackageAndImports:
+    active: true
+  TrailingWhitespace:
+    active: true
+  UnnecessaryAnnotationUseSiteTarget:
+    active: true
+  UnnecessaryApply:
+    active: true
+  UnnecessaryLet:
+    active: true
+  UnnecessaryParentheses:
+    active: true
+  UntilInsteadOfRangeTo:
+    active: true
+  UseArrayLiteralsInAnnotations:
+    active: true
+  UseCheckNotNull:
+    active: true
+  UseEmptyCounterpart:
+    active: true
+  UseIfInsteadOfWhen:
+    active: true
+  UseRequireNotNull:
+    active: true
+  UseDataClass:
+    active: true
+  VarCouldBeVal:
+    active: true
+  WildcardImport:
+    active: true
+  ExplicitItLambdaParameter:
+    active: true
+  MagicNumber:
+    active: true
+    excludes: ["**/*Test.kt"]
+    ignoreNumbers: ['-1','0','1','2','0.5','0.25','10','100','1000','1024']
+    ignorePropertyDeclaration: true
+    ignoreLocalVariableDeclaration: true
+    ignoreCompanionObjectPropertyDeclaration: true
+    ignoreAnnotation: true
+    ignoreEnums: true
+    ignoreRanges: true
+  UseRequire:
+    active: true
+  UseCheckOrError:
+    active: true
+  UnusedPrivateMember:
+    active: true
+    allowedNames: "(_|ignored|expected)"
+  UnusedImports:
+    active: true
+  UnderscoresInNumericLiterals:
+    active: true
+  MaxLineLength:
+    active: true
+    maxLineLength: 100
+    excludePackageStatements: true
+    excludeImportStatements: true
+    excludeCommentStatements: true
+    excludes: "**/*Test.kt"
+  DataClassShouldBeImmutable:
+    active: true
+  ReturnCount:
+    active: false
+    max: 2
+    excludedFunctions: ['equals']
+
+naming:
+  active: true
+  FunctionNaming:
+    active: true
+    ignoreAnnotated: [ "Composable" ]
