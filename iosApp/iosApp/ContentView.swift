@@ -32,7 +32,7 @@ struct ContentView: View {
             }
         }.refreshable {
             articleScreen.viewModel.articlesViewModel.getArticles(forceFetch: true)
-            SourcesScreen.viewModel.sourcesViewModel.getSources(forceFetch: true)
+            SourcesScreen.viewModel.sourcesViewModel.getSources()
         }
     }
 }
